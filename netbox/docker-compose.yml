@@ -1,0 +1,58 @@
+---
+services:
+  netbox-postgres:
+    image: postgres:15-alpine
+    container_name: netbox_postgres
+    hostname: netbox-postgres
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "netbox", "-U", "netbox"]
+      timeout: 45s
+      interval: 10s
+      retries: 10   
+    volumes:
+      - /data/projects/netbox/postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=netboxpass
+      - POSTGRES_DB=netbox
+      - POSTGRES_USER=netbox
+     
+  netbox-redis:
+    image: redis:7-alpine
+    user: 0:100
+    command: redis-server
+    container_name: netbox_redis
+    hostname: netbox-redis
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+    restart: always
+    volumes:
+      - /data/projects/netbox/redis-data:/data
+      
+  netbox-server:
+    image: lscr.io/linuxserver/netbox:latest
+    container_name: netbox_server
+    hostname: netbox-server
+    environment:
+      - PUID=0
+      - PGID=100
+      - TZ=Australia/Adelaide
+      - SUPERUSER_EMAIL=mahamlyn@local
+      - SUPERUSER_PASSWORD=yourpasstomail
+      - DB_NAME=netbox
+      - DB_USER=netbox
+      - DB_PASSWORD=netboxpass
+      - DB_HOST=netbox-postgres
+      - DB_PORT=5432
+      - REDIS_HOST=netbox-redis
+      - REDIS_PORT=6379
+      - REDIS_DB_TASK=0
+      - REDIS_DB_CACHE=1
+    volumes:
+      - /data/projects/netbox/netbox-data:/config
+    ports:
+      - 13031:8000
+    depends_on:
+      - netbox-postgres
+      - netbox-redis
+    restart: unless-stopped  
