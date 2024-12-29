@@ -1,0 +1,29 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Development & Cloud Services:
+    - Github:
+        - abbr: GH
+          href: https://github.com/
+    - Azure:
+        - abbr: AZ
+          href: https://portal.azure.com
+
+- Tech Websites:
+    - Ansible Documentation:
+        - abbr: AN
+          href: https://docs.ansible.com/
+
+- YouTube Channels:
+    - Christian Lempa:
+        - abbr: CL
+          href: https://www.youtube.com/@christianlempa
+
+    - Linus Tech Tips:
+        - abbr: LTT
+          href: https://www.youtube.com/@linustechtips
+
+    - Jeff Gerling:
+        - abbr: JG
+          href: https://www.youtube.com/@jeffgeerling
