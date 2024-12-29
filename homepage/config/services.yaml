@@ -1,0 +1,71 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services
+
+- Infrastructure:
+    - MLH-LAB-ESXI01:
+        href: https://192.168.1.20/ui/#/login
+        description: esxi lab server 01
+        icon: vmware.png
+
+    - MLH-LAB-ESXI02:
+        href: https://192.168.1.21/ui/#/login
+        description: esxi lab server 02
+        icon: vmware.png
+
+- Managment:
+    - Portainer:
+        href: http://192.168.1.31:9000/#!/home
+        icon: portainer.png
+
+    - Cockpit - MLH-LAB-DOCK01:
+        href: https://192.168.1.31:9090/
+        icon: ubuntu.png
+
+    - Cockpit - MLH-LAB-DASH01:
+        href: https://192.168.1.32:9090/
+        icon: ubuntu.png
+
+- Networking:
+    - PiHole:
+        href: http://192.168.1.15/admin/login.php
+        description: PiHole
+        icon: sh-raspberry-pi.png
+
+    - Ubiquiti UniFi Controller:
+       href: https://192.168.1.16:8443/manage/account/login?redirect=%2Fmanage
+       description: Ubiquiti UniFi Controller
+       icon: ubiquiti.png
+
+    - UniFi Security Gateway:
+        href: https://192.168.1.1/#/login
+        description: Unifi USG Security Gateway
+        icon: ubiquiti.png
+
+- Monitoring:
+    - UptimeKuma:
+        href: http://192.168.1.31:3444/
+        description: Up time monitoring
+        icon: uptime-kuma.png
+
+    - Grafana Dashboards:
+        href: http://192.168.1.32:3000/
+        description: Grafana Dashboards and Reporting
+        icon: grafana.png
+
+- Tools:
+    - ByteStash:
+        href: http://192.168.1.31:5000
+        description: ByteStash Website
+        icon: sh-bytestash.png
+
+- Automation:
+    - Placeholder:
+        href: https://localhost
+        description: placeholder
+
+- Documentation:
+     - Confluence:
+        href: https://hammerslab.atlassian.net/wiki/spaces/HD/overview
+        description: Hammers Lab Documentation
+        icon: atlassian.png
