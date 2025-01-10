@@ -7,7 +7,7 @@ This repository maintains boilerplates for docker projects I run within my own l
 | bytestash | code snipit tool for quick access to code snipits |
 | caadvisor | caadviser for promethus monitoring of docker |
 | homepage | Internal homepage website with relevant config |
-| sempahore | IP Address managment |
+| sempahore | automation and script execution |
 | uptimekuma | server and website monitoring |
 | watchtower | Docker image update automation |
 | unpoller | Unifi polling software |
